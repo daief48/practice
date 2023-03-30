@@ -15,11 +15,11 @@ def analyze(request):
     punctuations = '''!()-{}[];:;"\,<>./?@#$^&*_~%'''
     analyzed = ""
     print(removepunc)
-    if removepunc == 'off':
+    if removepunc == 'on':
         for char in djtext:
             if char not in punctuations:
                 analyzed = analyzed + char
-        params = {'purpose':'Removed Punctions','analyzed':analyzed}
+        params = {'purpose':'Removed Punctions','analyzed_text':analyzed}
         return render(request,'analyze.html',params)
     else:
         return HttpResponse("Error")
